@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base target="_self">
+  <title>Robotics Student Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    .tech-badge {
+      transition: all 0.3s ease;
+    }
+    
+    .tech-badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'robot-blue': '#2563EB',
+            'circuit-green': '#10B981',
+            'mechanical-orange': '#F97316',
+            'sensor-purple': '#7C3AED',
+          },
+          fontFamily: {
+            'orbitron': ['Orbitron', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white/80 dark:bg-gray-800/90 backdrop-blur-lg z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center">
+          <a href="#" class="flex items-center">
+            <i class="fas fa-robot text-2xl text-robot-red mr-2"></i>
+            <span class="text-xl font-bold font-medium hover">Matporfolio</span>
+          </a>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#about" class="text-sm font-medium hover:text-robot-blue transition-colors">About</a>
+          <a href="#projects" class="text-sm font-medium hover:text-robot-blue transition-colors">Projects</a>
+          <a href="#education" class="text-sm font-medium hover:text-robot-blue transition-colors">Education</a>
+          <a href="#skills" class="text-sm font-medium hover:text-robot-blue transition-colors">Skills</a>
+          <a href="#contact" class="text-sm font-medium hover:text-robot-blue transition-colors">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <i id="theme-icon" class="fas fa-moon text-robot-blue dark:text-yellow-300"></i>
+          </button>
+          <a href="#contact" class="md:hidden text-robot-blue">
+            <i class="fas fa-bars text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
+            <span class="text-robot-blue"> </span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-robot-blue to-circuit-green">Matthew Dzadzu</span>
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-mechanical-black">Robotics Engineering Student from Design and Technology Institute</h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+            Passionate about designing intelligent robotic systems and solving complex engineering challenges through innovation and technology.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects" class="px-6 py-3 bg-robot-blue text-white rounded-lg hover:bg-robot-blue/90 transition-colors flex items-center">
+              <i class="fas fa-laptop-code mr-2"></i> View Projects
+            </a>
+            <a href="#contact" class="px-6 py-3 border-2 border-robot-blue text-robot-blue rounded-lg hover:bg-robot-blue/10 transition-colors flex items-center">
+              <i class="fas fa-paper-plane mr-2"></i> Contact Me
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-r from-robot-blue/20 to-circuit-green/20 rounded-2xl blur-xl rotate-6"></div>
+          <img src="/image/WhatsApp Image 2025-06-01 at 12.05.39 PM.jpeg" 
+               alt="Robotics Student" 
+               class="relative rounded-2xl shadow-2xl w-full max-w-md mx-auto border-4 border-white dark:border-gray-800" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-robot-blue">About Me</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-robot-blue to-circuit-green mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <div class="text-robot-blue text-4xl mb-4">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Education</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Currently pursuing a deploma in Robotics Engineering at Design And Technology Institute, Accra Ghana, 
+            where I am being thought what it takes to become problem solver in the future, In DTI, We are skilled base on company desire,
+            expected graduation in 2025.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <div class="text-circuit-green text-4xl mb-4">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Research Interests</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Autonomous systems, computer vision, robotic manipulation,3D mapping, Tactile and force sensing, Inverse kinematics/robot arm contro,
+            Imitation learning and behavioral cloning,Anomaly detection and fault diagnosis and human-robot interaction.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <div class="text-mechanical-orange text-4xl mb-4">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">My hand-helps (Experience)</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Help Build multiple robotic systems including autonomous drones,help solve problem using engineering processes,
+             robotic arms, designed drone in CAD, Build a remote control car and uses c++ codings to program mobile robots.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-robot-blue">My Projects</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-robot-blue to-circuit-green mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <div class="h-48 overflow-hidden">
+            <img src="/image/MY DELIVERY DRONE .png" 
+                 alt="Autonomous Rover" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-robot-blue">Fully Design Delivery Drone chassis</h3>
+            <p class="text-gray-600 dark:text red-300 mb-4">
+              Designed and developed lightweight, durable chassis for an autonomous delivery drone. 
+              Using...
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge px-3 py-1 bg-robot-blue/10 text-robot-blue rounded-full text-sm">Fusion 360</span>
+              <span class="tech-badge px-3 py-1 bg-circuit-green/10 text-circuit-green rounded-full text-sm">SolidWorks</span>
+              <span class="tech-badge px-3 py-1 bg-mechanical-orange/10 text-mechanical-orange rounded-full text-sm">3D printing</span>
+            </div>
+            <a href="#" class="text-robot-blue hover:text-robot-blue/80 flex items-center">
+              <!-- <i class="fas fa-external-link-alt mr-2"></i> detailes -->
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <div class="h-48 overflow-hidden">
+            <img src="/image/Screenshot 2025-06-01 113539.png" 
+                 alt="Robotic Arm" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-robot-blue">Ball Bearing</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Bearing ball design for reducing friction and supporting load. With CAD softwares like... 
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge px-3 py-1 bg-robot-blue/10 text-robot-blue rounded-full text-sm">Fusion 360</span>
+              <span class="tech-badge px-3 py-1 bg-sensor-purple/10 text-sensor-purple rounded-full text-sm">Solidworks</span>
+              <span class="tech-badge px-3 py-1 bg-mechanical-orange/10 text-mechanical-orange rounded-full text-sm">3D Printing</span>
+            </div>
+            <a href="#" class="text-robot-blue hover:text-robot-blue/80 flex items-center">
+              <!-- <i class="fas fa-external-link-alt mr-2"></i> details -->
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+          <div class="h-48 overflow-hidden">
+            <img src="/image/Screenshot 2025-06-01 114155.png" 
+                 alt="Computer Vision" 
+                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-robot-blue">Car tyre</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Cartapillar Car tyre design with CAD softwares...
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-badge px-3 py-1 bg-robot-blue/10 text-robot-blue rounded-full text-sm">Fusion 360</span>
+              <span class="tech-badge px-3 py-1 bg-circuit-green/10 text-circuit-green rounded-full text-sm">Solidworks</span>
+              <span class="tech-badge px-3 py-1 bg-sensor-purple/10 text-sensor-purple rounded-full text-sm">3D printing</span>
+            </div>
+            <a href="#" class="text-robot-blue hover:text-robot-blue/80 flex items-center">
+              <i class="fas fa-external-link-alt mr-2"></i> 
+            </a>
+          </div>
+        </div>
+      </div>
+       
+      <div class="text-center mt-12">
+        <a href="gallery.html" class="inline-flex items-center px-6 py-3 border border-robot-blue text-robot-blue rounded-lg hover:bg-robot-blue/10 transition-colors">
+          <i class="fas fa-book-open mr-2"></i> View All Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-white dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-robot-blue">Education & Experience</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-robot-blue to-circuit-green mx-auto"></div>
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <!-- Timeline Item 1 -->
+        <div class="relative pl-8 sm:pl-32 py-6 group">
+          <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 dark:before:bg-gray-600 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-4 after:h-4 after:bg-robot-blue after:border-4 after:box-content after:border-gray-50 dark:after:border-gray-800 after:rounded-full after:-translate-x-1/2 after:translate-y-1.5">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-robot-blue bg-robot-blue/10 rounded-full">Present- 2025</time>
+            <div class="text-xl font-bold text-red-900 dark:text-white">PEARSON BTECH LEVEL 5 (Deploma) in Robotics Engineering</div>
+          </div>
+          <div class="text-xl font-bold text-gray-600 dark:text-gray-300 pl-0 sm:pl-4">Design And Technology institute</div>
+          <div class="text-gray-500 dark:text-gray-400 text-sm pl-0 sm:pl-4 mt-2">
+            <p>• GPA: 3.8/4.0</p>
+            <p>• Relevant Coursework: Robotics Systems, Assist in building autonomous robotics arm, Computer Vision, Machine Learning</p>
+            <!-- <p>•</p> -->
+          </div>
+        </div>
+        
+        <!-- Timeline Item 2 -->
+        <div class="relative pl-8 sm:pl-32 py-6 group">
+          <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 dark:before:bg-gray-600 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-4 after:h-4 after:bg-circuit-green after:border-4 after:box-content after:border-gray-50 dark:after:border-gray-800 after:rounded-full after:-translate-x-1/2 after:translate-y-1.5">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-circuit-green bg-circuit-green/10 rounded-full">Present 2025</time>
+            <div class="text-xl font-bold text-red-900 dark:text-white">Commission for Technical and Vocational Education and Training (CTVET)</div>
+          </div>
+          <div class="text-xl font-bold text-gray-600 dark:text-gray-300 pl-0 sm:pl-4">Design And Technology Institute</div>
+          <div class="text-gray-500 dark:text-gray-400 text-sm pl-0 sm:pl-4 mt-2">
+            <p>• Developed path planning algorithms for autonomous mobile robots</p>
+            <p>• Implemented sensor fusion techniques for improved localization</p>
+            <p>• Presented findings base on various Engineering processes</p>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 3 -->
+        <div class="relative pl-8 sm:pl-32 py-6 group">
+          <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 dark:before:bg-gray-600 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-4 after:h-4 after:bg-mechanical-orange after:border-4 after:box-content after:border-gray-50 dark:after:border-gray-800 after:rounded-full after:-translate-x-1/2 after:translate-y-1.5">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-mechanical-orange bg-mechanical-orange/10 rounded-full">2021 - 2024</time>
+            <div class="text-xl font-bold text-red-900 dark:text-white">West African Senior School Certificate Examination(WASSCE)</div>
+          </div>
+          <div class="text-xl font-bold text-gray-600 dark:text-gray-300 pl-0 sm:pl-4">Taviefe Senior High School(Ohio city college)</div>
+          <div class="text-gray-500 dark:text-gray-400 text-sm pl-0 sm:pl-4 mt-2">
+            <!-- <p>• Assisted students in Introduction to Robotics course</p>
+            <p>• Designed lab exercises for Arduino and ROS platforms</p>
+            <p>• Mentored student teams in robotics competitions</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-robot-blue">Technical Skills</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-robot-blue to-circuit-green mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Robotics Skills -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="text-robot-blue text-2xl mr-3">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-bold">Robotics</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex justify-between items-center">
+              <span>Electronics</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-robot-blue h-2.5 rounded-full" style="width: 90%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span>System maintenance</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-robot-blue h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span>Troubleshooting</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-robot-blue h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span>Control Systems</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-robot-blue h-2.5 rounded-full" style="width: 75%"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Programming Skills -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="text-circuit-green text-2xl mr-3">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="text-xl font-bold">Programming</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex justify-between items-center">
+              <span>C++</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-circuit-green h-2.5 rounded-full" style="width: 95%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <!-- <span>C++</span> -->
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-circuit-green h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span></span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-circuit-green h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <!-- <span>JavaScript</span> -->
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-circuit-green h-2.5 rounded-full" style="width: 70%"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Hardware Skills -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="text-mechanical-orange text-2xl mr-3">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3 class="text-xl font-bold">Hardware</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex justify-between items-center">
+              <span>Arduino</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-mechanical-orange h-2.5 rounded-full" style="width: 90%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span>Raspberry Pi</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-mechanical-orange h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span>3D Printing</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-mechanical-orange h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+            </li>
+            <li class="flex justify-between items-center">
+              <span>PCB Design</span>
+              <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div class="bg-mechanical-orange h-2.5 rounded-full" style="width: 75%"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Additional Skills -->
+      <div class="mt-12 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold mb-6 text-center">Additional Skills & Tools</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="tech-badge px-4 py-2 bg-robot-blue/10 text-robot-blue rounded-full flex items-center">
+            <i class="fas fa-eye mr-2"></i> Computer Vision
+          </div>
+          <div class="tech-badge px-4 py-2 bg-circuit-green/10 text-circuit-green rounded-full flex items-center">
+            <i class="fas fa-brain mr-2"></i> Machine Learning
+          </div>
+          <div class="tech-badge px-4 py-2 bg-mechanical-orange/10 text-mechanical-orange rounded-full flex items-center">
+            <i class="fas fa-project-diagram mr-2"></i> CAD (SolidWorks)
+          </div>
+          <div class="tech-badge px-4 py-2 bg-sensor-purple/10 text-sensor-purple rounded-full flex items-center">
+            <i class="fas fa-satellite-dish mr-2"></i> Sensor Integration
+          </div>
+          <div class="tech-badge px-4 py-2 bg-robot-blue/10 text-robot-blue rounded-full flex items-center">
+            <i class="fas fa-network-wired mr-2"></i> IoT
+          </div>
+          <div class="tech-badge px-4 py-2 bg-circuit-green/10 text-circuit-green rounded-full flex items-center">
+            <!-- <i class="fab fa-linux mr-2"></i> Linux -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-robot-blue">Get In Touch</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-robot-blue to-circuit-green mx-auto"></div>
+        <p class="text-gray-600 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+          Interested in collaborating or have questions about my work? Feel free to reach out!
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="text-robot-blue text-2xl mr-4 mt-1">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">Email</h3>
+                <p class="text-gray-600 dark:text-gray-300">mathewdzadzu@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-circuit-green text-2xl mr-4 mt-1">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">Phone</h3>
+                <p class="text-gray-600 dark:text-gray-300">[+233 531943980]</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-mechanical-orange text-2xl mr-4 mt-1">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold mb-1">Location</h3>
+                <p class="text-gray-600 dark:text-gray-300">[Lakeside, Ghana]</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8">
+            <h3 class="text-lg font-bold mb-4">Connect With Me</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-robot-blue hover:bg-robot-blue hover:text-white transition-colors">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-robot-blue hover:bg-robot-blue hover:text-white transition-colors">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-robot-blue hover:bg-robot-blue hover:text-white transition-colors">
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-robot-blue hover:bg-robot-blue hover:text-white transition-colors">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md">
+          <form>
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
+              <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-robot-blue dark:bg-gray-800">
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-robot-blue dark:bg-gray-800">
+            </div>
+            <div class="mb-4">
+              <label for="subject" class="block text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+              <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-robot-blue dark:bg-gray-800">
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-robot-blue dark:bg-gray-800"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-robot-blue text-white py-3 px-6 rounded-lg hover:bg-robot-blue/90 transition-colors">
+              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-white text-xl font-bold mb-4">Robotics Portfolio</h3>
+          <p class="mb-4">Showcasing my journey and projects in robotics engineering. </p>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-robot-blue transition-colors">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="#" class="hover:text-robot-blue transition-colors">
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a href="#" class="hover:text-robot-blue transition-colors">
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white text-lg font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#about" class="hover:text-robot-blue transition-colors">About Me</a></li>
+            <li><a href="#projects" class="hover:text-robot-blue transition-colors">Projects</a></li>
+            <li><a href="#education" class="hover:text-robot-blue transition-colors">Education</a></li>
+            <li><a href="#skills" class="hover:text-robot-blue transition-colors">Skills</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white text-lg font-bold mb-4">Contact Info</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-envelope mr-2 mt-1 text-robot-blue"></i>
+              [mathewdzadzu@gmail.com]
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mr-2 mt-1 text-robot-blue"></i>
+              [+233531943980]
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-2 mt-1 text-robot-blue"></i>
+              [Lakeside, Ghana]
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p>&copy; 2024 [Matthew Dzadzu Kofi]. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-robot-blue text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      themeIcon.classList.toggle('fa-sun', !isDark);
+      themeIcon.classList.toggle('fa-moon', isDark);
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Form submission
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      });
+    }
+  </script>
+</body>
+</html>
